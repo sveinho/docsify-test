@@ -28,19 +28,13 @@
       },
 
       // 2. Den komplette søkefunksjonen
-      search: {
-        maxAge: 86400000, // Cache søkeresultater i 24 timer for raskere innlasting
-        paths: 'auto',    // Skanner automatisk alle .md-filer i alle de tre mappene
+   search: {
+        maxAge: 86400000,
+        paths: 'auto',
         placeholder: 'Søk på tvers av alle tre læringsstier...',
         noData: 'Ingen resultater funnet for dette søket!',
-        
-        // Hvor dypt i dokumentet søkemotoren skal lete etter overskrifter (h1 til h6)
         depth: 6, 
-
-        // Hindrer at lange sider dominerer søkeresultatene fullstendig
         hideOtherSidebarContent: false, 
-
-        // Konfigurasjon for å gjøre treffene ryddige og enkle å lese
         namespace: 'learning-paths'
       },
 
