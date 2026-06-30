@@ -33,6 +33,40 @@ window.$docsify = {
     paths: 'auto',
     placeholder: 'Søk på tvers av alle læringsstier...'
   },
+  
+    plugins: [
+    function(hook, vm) {
+      hook.beforeEach(function(html) {
+        // Hent den gjeldende filstien brukeren ser på
+        var currentPath = vm.route.path;
+        var bannerHtml = '';
+
+        // Definer designet og teksten for de tre ulike bannerne
+        if (currentPath.includes('/sti-nybegynner/')) {
+          bannerHtml = `
+            <div style="background-color: #e6f4ea; color: #137333; border: 1px solid #137333; padding: 12px; border-radius: 6px; margin-bottom: 20px; font-weight: bold; display: flex; align-items: center;">
+              🟢 Du følger nå: NYBEGYNNER-STIEN
+            </div>`;
+        } else if (currentPath.includes('/sti-viderekommen/')) {
+          bannerHtml = `
+            <div style="background-color: #e8f0fe; color: #1a73e8; border: 1px solid #1a73e8; padding: 12px; border-radius: 6px; margin-bottom: 20px; font-weight: bold; display: flex; align-items: center;">
+              🔵 Du følger nå: VIDEREKOMMEN-STIEN
+            </div>`;
+        } else if (currentPath.includes('/sti-ekspert/')) {
+          bannerHtml = `
+            <div style="background-color: #f3e8fd; color: #9333ea; border: 1px solid #9333ea; padding: 12px; border-radius: 6px; margin-bottom: 20px; font-weight: bold; display: flex; align-items: center;">
+              🟣 Du følger nå: EKSPERT-STIEN
+            </div>`;
+        }
+
+        // Legg banneret helt øverst i Markdown-innholdet [st2]
+        return bannerHtml + html;
+      });
+    }
+  ]
+};
+  
+  
   </script>
 
   <!-- Required -->
