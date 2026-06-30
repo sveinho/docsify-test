@@ -1,81 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="no">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport"
-    content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no, viewport-fit=cover">
-
-  <!-- Replace with your own title and description. -->
-  <title>Awesome Docsify Site</title>
-  <meta name="description" content="An awesome docsify site for publishing some content on the web.">
-
-  <!-- Default Theme (see https://docsify.js.org/#/themes) -->
+  <meta charset="UTF-8">
+  <title>Min Læringsplattform</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Tre unike læringsstier i én plattform">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  
+  <!-- Docsify standard designtema -->
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
-
 </head>
-
 <body>
-  <div id="app"></div>
-
+  <div id="app">Laster dokumentasjon...</div>
+  
   <script>
-    // Docsify Configuration (see https://docsify.js.org/#/configuration)
-window.$docsify = {
-  name: 'Min Læringsplattform',
-  loadSidebar: true,
-  alias: {
-    '/sti-nybegynner/_sidebar.md': '/sti-nybegynner/_sidebar.md',
-    '/sti-viderekommen/_sidebar.md': '/sti-viderekommen/_sidebar.md',
-    '/sti-ekspert/_sidebar.md': '/sti-ekspert/_sidebar.md',
-    '/.*/_sidebar.md': '/_sidebar.md'
-  },
-  search: {
-    paths: 'auto',
-    placeholder: 'Søk på tvers av alle læringsstier...'
-  },
-  
-    plugins: [
-    function(hook, vm) {
-      hook.beforeEach(function(html) {
-        // Hent den gjeldende filstien brukeren ser på
-        var currentPath = vm.route.path;
-        var bannerHtml = '';
+    window.$docsify = {
+      name: 'Læringsplattform',
+      repo: '',
+      
+      // 1. Sidemeny-konfigurasjon [st1]
+      loadSidebar: true,
+      alias: {
+        '/sti-nybegynner/_sidebar.md': '/sti-nybegynner/_sidebar.md',
+        '/sti-viderekommen/_sidebar.md': '/sti-viderekommen/_sidebar.md',
+        '/sti-ekspert/_sidebar.md': '/sti-ekspert/_sidebar.md',
+        '/.*/_sidebar.md': '/_sidebar.md' // Fallback til global meny
+      },
 
-        // Definer designet og teksten for de tre ulike bannerne
-        if (currentPath.includes('/sti-nybegynner/')) {
-          bannerHtml = `
-            <div style="background-color: #e6f4ea; color: #137333; border: 1px solid #137333; padding: 12px; border-radius: 6px; margin-bottom: 20px; font-weight: bold; display: flex; align-items: center;">
-              🟢 Du følger nå: NYBEGYNNER-STIEN
-            </div>`;
-        } else if (currentPath.includes('/sti-viderekommen/')) {
-          bannerHtml = `
-            <div style="background-color: #e8f0fe; color: #1a73e8; border: 1px solid #1a73e8; padding: 12px; border-radius: 6px; margin-bottom: 20px; font-weight: bold; display: flex; align-items: center;">
-              🔵 Du følger nå: VIDEREKOMMEN-STIEN
-            </div>`;
-        } else if (currentPath.includes('/sti-ekspert/')) {
-          bannerHtml = `
-            <div style="background-color: #f3e8fd; color: #9333ea; border: 1px solid #9333ea; padding: 12px; border-radius: 6px; margin-bottom: 20px; font-weight: bold; display: flex; align-items: center;">
-              🟣 Du følger nå: EKSPERT-STIEN
-            </div>`;
+      // 2. Den komplette søkefunksjonen
+      search: {
+        maxAge: 86400000, // Cache søkeresultater i 24 timer for raskere innlasting
+        paths: 'auto',    // Skanner automatisk alle .md-filer i alle de tre mappene
+        placeholder: 'Søk på tvers av alle tre læringsstier...',
+        noData: 'Ingen resultater funnet for dette søket!',
+        
+        // Hvor dypt i dokumentet søkemotoren skal lete etter overskrifter (h1 til h6)
+        depth: 6, 
+
+        // Hindrer at lange sider dominerer søkeresultatene fullstendig
+        hideOtherSidebarContent: false, 
+
+        // Konfigurasjon for å gjøre treffene ryddige og enkle å lese
+        namespace: 'learning-paths'
+      },
+
+      // 3. Dynamisk fargebanner basert på aktiv mappe [st2]
+      plugins: [
+        function(hook, vm) {
+          hook.beforeEach(function(html) {
+            var currentPath = vm.route.path;
+            var bannerHtml = '';
+
+            if (currentPath.includes('/sti-nybegynner/')) {
+              bannerHtml = `
+                <div style="background-color: #e6f4ea; color: #137333; border: 1px solid #137333; padding: 12px; border-radius: 6px; margin-bottom: 20px; font-weight: bold;">
+                  🟢 Du følger nå: NYBEGYNNER-STIEN
+                </div>`;
+            } else if (currentPath.includes('/sti-viderekommen/')) {
+              bannerHtml = `
+                <div style="background-color: #e8f0fe; color: #1a73e8; border: 1px solid #1a73e8; padding: 12px; border-radius: 6px; margin-bottom: 20px; font-weight: bold;">
+                  🔵 Du følger nå: VIDEREKOMMEN-STIEN
+                </div>`;
+            } else if (currentPath.includes('/sti-ekspert/')) {
+              bannerHtml = `
+                <div style="background-color: #f3e8fd; color: #9333ea; border: 1px solid #9333ea; padding: 12px; border-radius: 6px; margin-bottom: 20px; font-weight: bold;">
+                  🟣 Du følger nå: EKSPERT-STIEN
+                </div>`;
+            }
+
+            return bannerHtml + html; // Lim inn banneret øverst [st2]
+          });
         }
-
-        // Legg banneret helt øverst i Markdown-innholdet [st2]
-        return bannerHtml + html;
-      });
-    }
-  ]
-};
-  
-  
+      ]
+    };
   </script>
 
-  <!-- Required -->
-  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
-
-  <!-- Recommended -->
-  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/zoom-image.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.js"></script>
+  <!-- Kjerne-skriptet til Docsify -->
+  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  
+  <!-- Det offisielle søke-skriptet (MÅ ligge under Docsify-kjernen) -->
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
-
 </body>
 </html>
