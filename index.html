@@ -22,31 +22,43 @@
     // Docsify Configuration (see https://docsify.js.org/#/configuration)
 window.$docsify = {
   name: 'Min Læringsplattform',
-  repo: '',
-  
-  // 1. Aktiver sidemeny
   loadSidebar: true,
-  
-  // 2. Bytt sidemeny dynamisk basert på mappen brukeren er i
   alias: {
     '/sti-nybegynner/_sidebar.md': '/sti-nybegynner/_sidebar.md',
     '/sti-viderekommen/_sidebar.md': '/sti-viderekommen/_sidebar.md',
     '/sti-ekspert/_sidebar.md': '/sti-ekspert/_sidebar.md',
-    '/.*/_sidebar.md': '/_sidebar.md' // Fallback til global meny på rot
+    '/.*/_sidebar.md': '/_sidebar.md'
+  },
+  search: {
+    paths: 'auto',
+    placeholder: 'Søk på tvers av alle læringsstier...'
   },
 
-  // 3. Konfigurer det globale søket
-  search: {
-    maxAge: 86400000, // Cache i ett døgn
-    paths: 'auto',    // Går automatisk gjennom alle tilgjengelige sider
-    placeholder: 'Søk på tvers av alle læringsstier...',
-    noData: 'Ingen resultater funnet!',
-    depth: 6,         // Hvor dypt i overskriftene søket skal lete
-    
-    // Gjør det tydelig i søkeresultatet hvilken sti dokumentet tilhører
-    namespace: 'learning-paths' 
-  }
-};
+  // --- LEGG TIL DETTE PLUGIN-FELTET ---
+  plugins: [
+    function(hook, vm) {
+      hook.beforeEach(function(html) {
+        // Hent den gjeldende filstien brukeren ser på
+        var currentPath = vm.route.path;
+        var bannerHtml = '';
+
+        // Definer designet og teksten for de tre ulike bannerne
+        if (currentPath.includes('/sti-nybegynner/')) {
+          bannerHtml = `
+            <div style="background-color: #e6f4ea; color: #137333; border: 1px solid #137333; padding: 12px; border-radius: 6px; margin-bottom: 20px; font-weight: bold; display: flex; align-items: center;">
+              🟢 Du følger nå: NYBEGYNNER-STIEN
+            </div>`;
+        } else if (currentPath.includes('/sti-viderekommen/')) {
+          bannerHtml = `
+            <div style="background-color: #e8f0fe; color: #1a73e8; border: 1px solid #1a73e8; padding: 12px; border-radius: 6px; margin-bottom: 20px; font-weight: bold; display: flex; align-items: center;">
+              🔵 Du følger nå: VIDEREKOMMEN-STIEN
+            </div>`;
+        } else if (currentPath.includes('/sti-ekspert/')) {
+          bannerHtml = `
+            <div style="background-color: #f3e8fd; color: #9333ea; border: 1px solid #9333ea; padding: 12px; border-radius: 6px; margin-bottom: 20px; font-weight: bold; display: flex; align-items: center;">
+              🟣 Du følger nå: EKSPERT-STIEN
+            </div>`;
+        }
   </script>
 
   <!-- Required -->
