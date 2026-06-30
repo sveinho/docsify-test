@@ -39,7 +39,7 @@
       },
 
       // 3. Dynamisk fargebanner basert på aktiv mappe [st2]
-      plugins: [
+   plugins: [
         function(hook, vm) {
           hook.beforeEach(function(html) {
             var currentPath = vm.route.path;
@@ -62,7 +62,8 @@
                 </div>`;
             }
 
-            return bannerHtml + html; // Lim inn banneret øverst [st2]
+            // Hverken 'return' eller krøllparentesene skal være inni de skråstilte hermetegnene (backticks)
+            return bannerHtml + html;
           });
         }
       ]
