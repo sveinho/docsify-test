@@ -1,2 +1,1 @@
-- [Read Me](README)
-- [Intro Page](introduction)
+- [Intro Page](introduksjon)
