@@ -1,1 +1,1 @@
-- [Introduction Page](introduction)
+- [Introduction Page](introduksjon)
