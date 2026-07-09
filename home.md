@@ -23,7 +23,7 @@ These educational materials are divided into three tailored learning tracks. Sel
   <!-- CARD 3: TRAINER -->
   <div style="flex: 1; min-width: 250px; border: 1px solid #e0e0e0; border-radius: 8px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-top: 5px solid #dc3545;">
     <h3 style="color: #dc3545; margin-top: 0;">🔴 Track 3: Trainer</h3>
-    <p>For educators and instructors. Master the tools needed to present materials, guide groups, and evaluate learning outcomes.</p>
+    <p>For educators and instructors. Master many of the tools needed to present materials, guide groups, and evaluate learning outcomes.</p>
     <p style="font-size: 0.9em; color: #666;"><strong>Duration:</strong> approx. 3 hours</p>
     <a href="#/track-trainer/README" style="display: inline-block; background-color: #dc3545; color: white; padding: 10px 15px; text-decoration: none; border-radius: 4px; font-weight: bold; margin-top: 10px;">Start Trainer Track</a>
   </div>
