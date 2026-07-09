@@ -1,4 +1,4 @@
-# Welcome to the Learning Portal
+# Welcome to the Support kit
 
 These educational materials are divided into three tailored learning tracks. Select the path that best matches your role and goals to get started.
 
