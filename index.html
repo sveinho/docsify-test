@@ -37,18 +37,18 @@
   <script>
     window.$docsify = {
       name: 'Læringsportal',
-      repo: '', // Legg til lenke til ditt GitHub-repo her om ønskelig
+      repo: '', 
       
       // Aktiverer sideoversikt og toppmeny
       loadSidebar: true,
       loadNavbar: true,
       subMaxLevel: 2,
 
-      // Ruter brukeren til riktig sidebar basert på hvilket spor de klikker på
+      // Forbedret alias-ruting som sikrer at _sidebar.md lastes riktig i mapper
       alias: {
-        '/spor-intro/.+': '/spor-intro/_sidebar.md',
-        '/spor-utvikler/.+': '/spor-utvikler/_sidebar.md',
-        '/spor-arkitekt/.+': '/spor-arkitekt/_sidebar.md'
+        '/spor-intro/(.*)': '/spor-intro/_sidebar.md',
+        '/spor-utvikler/(.*)': '/spor-utvikler/_sidebar.md',
+        '/spor-arkitekt/(.*)': '/spor-arkitekt/_sidebar.md'
       },
 
       // Innstillinger for fane-plugin (tabs)
@@ -65,10 +65,10 @@
   <!-- Docsify Core -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
 
-  <!-- Plugin: Søkefunksjon (Valgfritt, men veldig nyttig) -->
+  <!-- Plugin: Søkefunksjon -->
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
 
-  <!-- Plugin: docsify-tabs (For å splitte innhold i faner per spor) -->
-  <script src="https://jsdelivr.net"></script>
+  <!-- KORRIGERT PLUGIN: docsify-tabs -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
 </body>
 </html>
