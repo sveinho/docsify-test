@@ -1,6 +1,6 @@
 # Workflow Setup & Operational Management
 
-<span class="badge track-manager">Manager</span> <span class="badge track-trainer">Trainer</span>
+<span style="background:#28a745; color:white; padding:2px 6px; border-radius:3px; font-size:0.8em;">Manager</span>
 
 Welcome to the Manager track! This module guides you through establishing operational workflows, setting up progress tracking, and aligning timelines between research outputs and training schedules.
 
