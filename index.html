@@ -2,49 +2,73 @@
 <html lang="no">
 <head>
   <meta charset="UTF-8">
-  <title>Min Læringsplattform</title>
+  <title>Læringsportal</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="Tre unike læringsstier i én plattform">
+  <meta name="description" content="Læringsmateriale med tre spor">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   
-  <!-- Docsify standard designtema -->
+  <!-- Offisielt Docsify-tema -->
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+
+  <!-- Skreddersydd CSS for dine tre læringsløp-tagger (Badges) -->
+  <style>
+    .badge {
+      display: inline-block;
+      padding: 0.25em 0.6em;
+      font-size: 75%;
+      font-weight: 700;
+      line-height: 1;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: baseline;
+      border-radius: 0.25rem;
+      color: #fff;
+      margin-right: 5px;
+    }
+    /* Fargekoder for de tre læringsløpene */
+    .spor-intro { background-color: #2b7de9; } /* Blå */
+    .spor-utvikler { background-color: #28a745; } /* Grønn */
+    .spor-arkitekt { background-color: #dc3545; } /* Rød */
+  </style>
 </head>
 <body>
-  <div id="app">Laster dokumentasjon...</div>
+  <div id="app">Laster læringsmateriale...</div>
   
   <script>
     window.$docsify = {
-      name: 'Læringsplattform',
-      repo: '',
+      name: 'Læringsportal',
+      repo: '', // Legg til lenke til ditt GitHub-repo her om ønskelig
       
-      // 1. Sidemeny-konfigurasjon [st1]
+      // Aktiverer sideoversikt og toppmeny
       loadSidebar: true,
+      loadNavbar: true,
+      subMaxLevel: 2,
+
+      // Ruter brukeren til riktig sidebar basert på hvilket spor de klikker på
       alias: {
-        '/sti-nybegynner/_sidebar.md': '/sti-nybegynner/_sidebar.md',
-        '/sti-viderekommen/_sidebar.md': '/sti-viderekommen/_sidebar.md',
-        '/sti-ekspert/_sidebar.md': '/sti-ekspert/_sidebar.md',
-        '/.*/_sidebar.md': '/_sidebar.md' // Fallback til global meny
+        '/spor-intro/.+': '/spor-intro/_sidebar.md',
+        '/spor-utvikler/.+': '/spor-utvikler/_sidebar.md',
+        '/spor-arkitekt/.+': '/spor-arkitekt/_sidebar.md'
       },
 
-      // 2. Den komplette søkefunksjonen
-   search: {
-        maxAge: 86400000,
-        paths: 'auto',
-        placeholder: 'Søk på tvers av alle tre læringsstier...',
-        noData: 'Ingen resultater funnet for dette søket!',
-        depth: 6, 
-        hideOtherSidebarContent: false, 
-        namespace: 'learning-paths'
-      },
-
- 
+      // Innstillinger for fane-plugin (tabs)
+      tabs: {
+        persist: true,
+        sync: true,
+        theme: 'classic',
+        tabComments: true,
+        tabHeadings: true
+      }
+    }
   </script>
 
-  <!-- Kjerne-skriptet til Docsify -->
+  <!-- Docsify Core -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
-  
-  <!-- Det offisielle søke-skriptet (MÅ ligge under Docsify-kjernen) -->
+
+  <!-- Plugin: Søkefunksjon (Valgfritt, men veldig nyttig) -->
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+
+  <!-- Plugin: docsify-tabs (For å splitte innhold i faner per spor) -->
+  <script src="https://jsdelivr.net"></script>
 </body>
 </html>
