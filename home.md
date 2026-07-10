@@ -1,6 +1,6 @@
 # Welcome to the Support kit
 
-These educational materials are divided into three tailored learning tracks. Select the path that best matches your role and goals to get started.
+The support kit materials are divided into three tailored learning paths or if you like: tracks. Select the path that best matches your role and goals to get started.
 
 <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 30px;">
 
