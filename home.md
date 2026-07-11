@@ -9,7 +9,7 @@ The support kit materials are divided into three tailored learning paths or if y
     <h3 style="color: #2b7de9; margin-top: 0;">🔵 Track 1: Researcher</h3>
     <p>For those focused on data gathering, analysis, and methodologies. Learn how to navigate frameworks and extract key insights.</p>
     <p style="font-size: 0.9em; color: #666;"><strong>Duration:</strong> approx. 2 hours</p>
-    <a href="#/track-researcher/README" style="display: inline-block; background-color: #2b7de9; color: white; padding: 10px 15px; text-decoration: none; border-radius: 4px; font-weight: bold; margin-top: 10px;">Start Researcher Track</a>
+    <a href="#/track-researcher/index" style="display: inline-block; background-color: #2b7de9; color: white; padding: 10px 15px; text-decoration: none; border-radius: 4px; font-weight: bold; margin-top: 10px;">Start Researcher Track</a>
   </div>
 
   <!-- CARD 2: MANAGER -->
@@ -17,7 +17,7 @@ The support kit materials are divided into three tailored learning paths or if y
     <h3 style="color: #28a745; margin-top: 0;">🟢 Track 2: Manager</h3>
     <p>For project leaders and coordinators. Focus on workflows, resource management, tracking progress, and reporting.</p>
     <p style="font-size: 0.9em; color: #666;"><strong>Duration:</strong> approx. 4 hours</p>
-    <a href="#/track-manager/README" style="display: inline-block; background-color: #28a745; color: white; padding: 10px 15px; text-decoration: none; border-radius: 4px; font-weight: bold; margin-top: 10px;">Start Manager Track</a>
+    <a href="#/track-manager/index" style="display: inline-block; background-color: #28a745; color: white; padding: 10px 15px; text-decoration: none; border-radius: 4px; font-weight: bold; margin-top: 10px;">Start Manager Track</a>
   </div>
 
   <!-- CARD 3: TRAINER -->
@@ -25,7 +25,7 @@ The support kit materials are divided into three tailored learning paths or if y
     <h3 style="color: #dc3545; margin-top: 0;">🔴 Track 3: Trainer</h3>
     <p>For educators and instructors. Master many of the tools needed to present materials, guide groups, and evaluate learning outcomes.</p>
     <p style="font-size: 0.9em; color: #666;"><strong>Duration:</strong> approx. 3 hours</p>
-    <a href="#/track-trainer/README" style="display: inline-block; background-color: #dc3545; color: white; padding: 10px 15px; text-decoration: none; border-radius: 4px; font-weight: bold; margin-top: 10px;">Start Trainer Track</a>
+    <a href="#/track-trainer/index" style="display: inline-block; background-color: #dc3545; color: white; padding: 10px 15px; text-decoration: none; border-radius: 4px; font-weight: bold; margin-top: 10px;">Start Trainer Track</a>
   </div>
 
 </div>
